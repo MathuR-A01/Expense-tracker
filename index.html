@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index_style.css">
+    <link rel="stylesheet" href="footerstyle.css">
+  </head>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+} 
+nav{
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background: #1b1b1b;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
+}
+nav .logo{
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
+}
+nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+nav ul li{
+  margin: 0 5px;
+}
+nav ul li a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+nav ul li a.active,
+nav ul li a:hover{
+  color: #111;
+  background: #fff;
+}
+nav .menu-btn i{
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+input[type="checkbox"]{
+  display: none;
+}
+@media (max-width: 1000px){
+  nav{
+    padding: 0 40px 0 50px;
+  }
+}
+@media (max-width: 920px) {
+  nav .menu-btn i{
+    display: block;
+  }
+  #click:checked ~ .menu-btn i:before{
+    content: "\f00d";
+  }
+  nav ul{
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: #111;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  #click:checked ~ ul{
+    left: 0;
+  }
+  nav ul li{
+    width: 100%;
+    margin: 40px 0;
+  }
+  nav ul li a{
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  #click:checked ~ ul li a{
+    margin-left: 0px;
+  }
+  nav ul li a.active,
+  nav ul li a:hover{
+    background: none;
+    color: cyan;
+  }
+}
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: -1;
+  width: 100%;
+  padding: 0 30px;
+  color: #1b1b1b;
+}
+.content div{
+  font-size: 40px;
+  font-weight: 700;
+}  
+  </style>
+  <body>
+    <nav>
+      <div class="logo">Expense-Tracker</div>
+      <input type="checkbox" id="click">
+      <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <ul>
+        <li><a class="active" href="form.html">profie</a></li>
+        <li><a href="aboutus.html">About-Us</a></li>
+        <li><a href="cwpd.html">Setting</a></li>
+        <li><a href="form.html">Login</a></li>
+      </ul>
+    </nav>
+
+    <!----main file  --->
+      
+    <h2>Expense Tracker</h2>
+    <div class="container">
+    <h4>Remainder-Balance</h4>
+    <h1 id="balance">$0.00</h1>
+    <div class="inc-exp-container">
+    <div>
+    <h4>Income</h4>
+    <p id="money-plus" class="money-plus">
+     +$0.00
+    </p>
+    </div>
+    <div>
+    <h4>Expense</h4>
+    <p id="money-minus" class="money-minus">
+    -$0.00
+    </p>
+    </div>
+    </div>
+    
+    <h3>Expenses-History</h3>
+    <ul id="list" class="list">
+    <li class="minus">
+    Cash <span>-$400</span>
+    <button class="delete-btn">x</button>
+    </li> 
+    </ul>
+    <h3>Add New-Expenses</h3>
+    <form id="form">
+    <div class="form-control">
+    <label for="text">Enter Income/Expenses</label>
+     <input type="text" id="text" placeholder="Enter text...."/>
+    </div>
+    <div class="form-control">
+    <label for="amount">Enter Income/Expenses Amount<br> (negative - expense ,positive - income )</label>
+    <input type="number" id="amount" placeholder="Enter Income/Expenses amount..."> 
+    </div>
+    <button class="btn">Submit</button>
+    </form>
+    </div> 
+
+    <script src="script.js "></script>
+  
+
+    <footer class="footer-distributed">
+
+			<div class="footer-left">
+          <img src="images/logo.png">
+				<h3>About<span>Expense-Tracker</span></h3>
+
+				<p class="footer-links">
+					<a href="#">Home</a>
+					|
+					<a href="#">Blog</a>
+					|
+					<a href="#">About</a>
+					|
+					<a href="#">Contact</a>
+				</p>
+
+				<p class="footer-company-name">© 2021 Expense-Tracker Working Pvt.Ltd.</p>
+			</div>
+
+			<div class="footer-center">
+				<div>
+					<i class="fa fa-map-marker"></i>
+					  <p><span>309 -lalbagh-road,
+						  No. A - 1, Sector - 1</span>
+						lalbagh-road,Banglore - 400710</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p>+91 22-27782183</p>
+				</div>
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="co:support@expensetracky.com">support@expense-tracky.co.com</a></p>
+				</div>
+			</div>
+			<div class="footer-right">
+				<p class="footer-company-about">
+					<span>About the company</span>
+					We are managing your monthly income and tracking your all expense  in this website  .</p>
+				<div class="footer-icons">
+					<a href="#"><i class="fa fa-facebook"></i></a>
+					<a href="#"><i class="fa fa-twitter"></i></a>
+					<a href="#"><i class="fa fa-instagram"></i></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a href="#"><i class="fa fa-youtube"></i></a>
+				</div>
+			</div>
+		</footer>
+
+
+</body>
+      
+</html>
+
